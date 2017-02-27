@@ -23,3 +23,5 @@ This will create your virtual environment, activate it, and then install the req
 To run our test suite, use the following command:
 
 `py.test --env=<environment> config-tests/`
+
+where `<environment>` is `stage` or `prod`
