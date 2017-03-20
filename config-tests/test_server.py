@@ -12,7 +12,7 @@ def conf():
 def test_heartbeat_fields(env, conf):
     response = requests.get(conf.get(env, 'we_server_url') + '/__heartbeat__')
     data = response.json()
-    fields = {'storage', 'portier', 'cache', 'attachments', 'permission', 'oauth'}
+    fields = {'storage', 'permission', 'oauth', 'cache'}
 
     for field in data:
         assert field in fields
