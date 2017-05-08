@@ -1,0 +1,1 @@
+docker run firefoxtesteng/kinto-webextensions-tests:latest
