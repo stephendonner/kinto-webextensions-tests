@@ -1,4 +1,4 @@
-appdirs==1.4.1
+appdirs
 cffi==1.9.1
 configparser==3.5.0
 cryptography==1.7.2
