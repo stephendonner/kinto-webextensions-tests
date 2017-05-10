@@ -5,4 +5,4 @@ WORKDIR /app
 RUN pip3 install -r requirements.txt
 RUN find . -name "*.pyc" | xargs rm -rf
 RUN find . -name "__pycache__" | xargs rm -rf
-CMD py.test --env=stage -v /app/config-tests/
+CMD py.test --env=$TEST_ENV -v /app/config-tests/
