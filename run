@@ -1,4 +1,4 @@
-#!/bin/bash
+#-!/bin/bash
 
 # project.test_type.test_env
 # ${JOB_NAME} is a Jenkins var
