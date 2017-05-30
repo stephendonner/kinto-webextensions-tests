@@ -46,7 +46,8 @@ def test_add_content(env, conf):
     data = {"payload": {"encrypted": "SmluZ28gdGVzdA=="}}
     resp = client.create_record(
         data,
-        collection=conf.get(env, 'qa_collection'), bucket='default')
+        collection=conf.get(env, 'qa_collection'),
+        bucket='default')
     new_record_id = resp['data']['id']
     updated_records = client.get_records(
         collection=conf.get(env, 'qa_collection'), bucket='default')
