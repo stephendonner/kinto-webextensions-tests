@@ -3,20 +3,19 @@
 This repo contains tests used by Firefox Test Engineering for verifying the Kinto stack being used to power [Mozilla's Web Extensions](https://wiki.mozilla.org/WebExtensions)
 system. 
 
+
 ## General Configuration
 
-Python 3.6.0 or greater is required.
+Please install the following tools:
 
-It's highly recommended to use [Virtualenv](https://virtualenv.pypa.io/en/latest/) to create an isolated Python
-environment to run your tests in.
+* Python 3.6 or greater
+* [pipenv](https://pipenv.readthedocs.io/en/latest/)
 
-From this directory:
+To create a virtual environment and activate it, please use the following commands:
 
-1. `virtualenv . -p /path/to/python`
-2. `./bin/activate`
-3. `./bin/pip install -r requirements.txt`
+1. `pipenv install`
+2. `pipenv shell`
 
-This will create your virtual environment, activate it, and then install the required Python package dependencies.
 
 ## Running Tests
 
