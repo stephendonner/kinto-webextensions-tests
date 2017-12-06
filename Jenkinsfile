@@ -1,14 +1,18 @@
-@Library('fxtest@1.6') _
-
 pipeline {
   agent any
+  libraries {
+    lib('fxtest@1.9')
+  }
   options {
     ansiColor('xterm')
     timestamps()
     timeout(time: 5, unit: 'MINUTES')
   }
   environment {
-    PYTEST_ADDOPTS = "-n=10 --color=yes"
+    PYTEST_PROCESSES = "${PYTEST_PROCESSES ?: "auto"}"
+    PYTEST_ADDOPTS =
+    "-n=${PYTEST_PROCESSES} " +
+    "--color=yes"
   }
   stages {
     stage('Test') {
