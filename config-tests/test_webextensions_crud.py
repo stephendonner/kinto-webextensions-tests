@@ -43,16 +43,12 @@ def test_add_content(env, conf):
     assert len(existing_records) == 0
 
     data = {"payload": {"encrypted": "SmluZ28gdGVzdA=="}}
-    resp = client.create_record(data, collection=conf.get(env, 'qa_collection'), bucket='default')
+    resp = client.create_record(data=data, collection=conf.get(env, 'qa_collection'), bucket='default')
     new_record_id = resp['data']['id']
     updated_records = client.get_records(collection=conf.get(env, 'qa_collection'), bucket='default')
     assert len(updated_records) == len(existing_records) + 1
 
-    client.delete_record(
-        new_record_id,
-        collection=conf.get(env, 'qa_collection'),
-        bucket='default'
-    )
+    client.delete_record(id=new_record_id, collection=conf.get(env, 'qa_collection'))
     updated_records = client.get_records(collection=conf.get(env, 'qa_collection'), bucket='default')
     assert len(updated_records) == len(existing_records)
 
