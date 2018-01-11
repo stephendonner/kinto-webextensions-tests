@@ -21,12 +21,12 @@ def pytest_addoption(parser):
     )
 
 
-@pytest.fixture
+@pytest.fixture(scope="module")
 def env(request):
     return request.config.getoption("--env")
 
 
-@pytest.fixture
+@pytest.fixture(scope="module")
 def apiversion(request):
     return request.config.getoption("--api-version")
 
