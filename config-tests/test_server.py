@@ -1,7 +1,6 @@
 import asyncio
 import configparser
 import pytest
-import requests
 from pyramid.compat import string_types
 from smwogger import API
 
