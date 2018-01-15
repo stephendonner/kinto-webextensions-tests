@@ -4,4 +4,4 @@ WORKDIR /src
 COPY . /src
 RUN pip3 install pipenv
 RUN pipenv install --system
-CMD pytest --env=$TEST_ENV -v config-test/
+CMD pytest --env=$TEST_ENV -v config-tests/
