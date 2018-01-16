@@ -18,16 +18,22 @@ pipeline {
   }
   stages {
     stage('Lint') {
+      agent {
+        dockerfile true
+      }
       steps {
         sh "flake8"
       }
     }
-  }
     stage('Test') {
+      agent {
+        dockerfile true
+      }
       steps {
         sh "pytest --env=${env.TEST_ENV} config-tests/"
       }
     }
+  }
   post {
     failure {
       mail(
