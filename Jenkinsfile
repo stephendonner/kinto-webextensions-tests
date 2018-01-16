@@ -23,11 +23,11 @@ pipeline {
       }
     }
   }
-  stage('Test') {
-    steps {
-      sh "pytest --env=${env.TEST_ENV} config-tests/"
+    stage('Test') {
+      steps {
+        sh "pytest --env=${env.TEST_ENV} config-tests/"
+      }
     }
-  }
   post {
     failure {
       mail(
