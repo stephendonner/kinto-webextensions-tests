@@ -1,7 +1,9 @@
 pipeline {
-  agent any
+  agent {
+    dockerfile true
+  }
   libraries {
-    lib('fxtest@1.9')
+    lib('fxtest@1.10')
   }
   options {
     ansiColor('xterm')
@@ -15,10 +17,15 @@ pipeline {
     "--color=yes"
   }
   stages {
-    stage('Test') {
+    stage('Lint') {
       steps {
-        sh "${WORKSPACE}/run"
+        sh "flake8"
       }
+    }
+  }
+  stage('Test') {
+    steps {
+      sh "pytest --env=${env.TEST_ENV} config-tests/"
     }
   }
   post {
